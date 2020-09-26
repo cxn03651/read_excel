@@ -1,3 +1,3 @@
-module ReadExcel
-  VERSION = "0.1.0"
+class ReadExcel
+  VERSION = "0.9.0"
 end
