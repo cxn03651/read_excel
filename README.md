@@ -1,8 +1,6 @@
 # ReadExcel
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/read_excel`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This ReadExcel rubygem can handle existing excel file both *.xlsx and *.xls. It can only get cell's value and sheet name of excel file.
 
 ## Installation
 
@@ -22,13 +20,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'read_excel'
 
-## Development
+workbook = ReadExcel.new('/path/to/excel_file')
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+sheet_count = workbook.worksheets.count
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+worksheets = workbook.worksheets
+
+worksheets.each do |worksheet|
+  p worksheet.name
+end
+
+worksheet = worksheets[0]
+
+row_values = worksheet.row(0)  # (row, col) = (0, 0) = 'A1'
+p row_values[0]  # 'A1'
+p row_values[2]  # 'A3'
+
+row_values = worksheet.row(10000)
+row_values.empty? # => true   empty row returns []
+```
 
 ## Contributing
 
