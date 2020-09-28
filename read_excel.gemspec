@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{utility for reading excel file both .xls and .xlsx.}
   spec.description   = %q{utility for reading excel file both .xls and .xlsx.}
   spec.license       = "MIT"
+  spec.homepage      = "https://github.com/cxn03651/read_excel"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   # Specify which files should be added to the gem when it is released.
